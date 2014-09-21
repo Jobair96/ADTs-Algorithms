@@ -17,16 +17,16 @@ public:
 	}
 };
 
-//template <typename T>
-//Node<T>::Node(T data) : mData(data)
-//{
-//
-//}
-//
-//template<typename T> 
-//T Node<T>::getData() const
-//{
-//	return mData;
-//}
+template <typename T>
+Node<T>::Node(T data) : mData(data)
+{
+
+}
+
+template<typename T> 
+T Node<T>::getData() const
+{
+	return mData;
+}
 
 #endif /* NODE_H */
