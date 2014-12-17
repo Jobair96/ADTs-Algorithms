@@ -3,118 +3,36 @@
 
 /**
 
-This is my implementaion of a linked list in C. Because C does not have reference paramters,
-I have decided to use a pointer to a pointer to implement this linked list.
+This is my the interface of my linked list in C. Because C does not have reference paramters,
+I have decided to use a pointer to a pointer to implement this linked list. This will allow the functions
+to change the passed in list without having to return a new Node each time. This Linked List is allocated on the heap by default.
 
 */
 
-#include <stdbool.h>
-#include <stdlib.h>
-#include <assert.h>
 #include "Node.h"
+#include <stdbool.h>
 
+// This takes a Node and builds a linked list from it.
+void initList(Node** root);
 
-void init(struct Node** root)
-{
-	*root = NULL;
-}
+// This checks if the linked list is empty, based on its root.
+bool isEmpty(Node** root);
 
-bool isEmpty(struct Node** root)
-{
-	return NULL == *root;
-}
+// Inserts a node at the front of the list.
+void insertNode(Node** root, int data);
 
-//Inserts a node at the front of the list.
-void insert(struct Node** root, int data)
-{
-	struct Node* newNode = malloc(sizeof(struct Node));
-	newNode->data = data;
-	newNode->next = *root;
-	*root = newNode;
-}
+// Checks if the linked list has a node with a specific piece of data.
+bool hasNode(Node** root, int data);
 
-//Checks if the linked list has a node with a specific piece of data.
-bool has(struct Node** root, int data)
-{
+// Prints the content of the linked list. This is mainly used for debugging.
+void printList(Node** root);
 
-	assert(!isEmpty(root));
+// Deletes the node that has the data specified.
+// Please note that if a list has multiple elements that are the same, only the first 
+// instance of that element will be deleted.
+void deleteNode(Node** root, int data);
 
-
-	struct Node* temp = *root;
-	while (NULL != temp)
-	{
-
-		if (temp->data == data)
-		{
-			return true;
-		}
-
-		temp = temp->next;
-	}
-
-	return false;
-}
-
-//Prints the content of the linked list.
-void printList(struct Node** root)
-{
-	assert(!isEmpty(root));
-
-
-	struct Node* temp= *root;
-	while (NULL != temp)
-	{
-		printf("%d\n", temp->data);
-		temp = temp->next;
-	}
-
-}
-
-//Deletes the node that has the data specified.
-void delete(struct Node** root, int data)
-{
-	assert(has(root, data));
-	struct Node* temp = *root;
-	if ((temp)->data == data)
-	{
-		*root = (*root)->next;
-		free(temp);
-		return;
-	}
-
-	while (NULL != temp->next)
-	{
-		if (temp->next->data == data)
-		{
-			break;
-		}
-
-		temp = temp->next;
-	}
-
-	
-	if (NULL == temp->next)
-	{
-		free(temp);
-		temp = NULL;
-	}
-
-	else
-	{
-		struct Node* toDelete = temp->next;
-		temp->next = temp->next->next;
-		free(toDelete);
-	}
-}
-
-void nuke(struct Node** root)
-{
-	while (NULL != *root)
-	{
-		struct Node* temp = *root;
-		*root = (*root)->next;
-		free(temp);
-	}
-}
+// Will delete the entire list if it has been allocated on the heap. 
+void nuke(Node** root);
 
 #endif /* LINKEDLIST_H */
