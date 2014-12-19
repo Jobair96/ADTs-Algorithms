@@ -10,7 +10,7 @@ namespace Data_Structures
             Console.WriteLine(list.isEmpty());
             list.enqueue(5);
             list.enqueue(7);
-            list.enqueue(-3);
+            list.enqueue(-4);
 
             Console.WriteLine(list.dequeue());
             Console.WriteLine(list.dequeue());
