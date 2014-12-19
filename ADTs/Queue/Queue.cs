@@ -1,5 +1,5 @@
 ﻿/**
- * Implementing a Queue as a Linked List
+ * Implementing a generic Queue as a Linked List. This uses the Node.cs class to build the list.
  */
 
 using System;
