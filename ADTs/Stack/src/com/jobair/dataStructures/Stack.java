@@ -1,4 +1,4 @@
-package com.jobair.dataStructures.linkedList;
+package com.jobair.dataStructures;
 
 public class Stack<T>
 {// Implementing a stack with a linked list.
@@ -71,6 +71,7 @@ public class Stack<T>
 		
 		while(null != mFirst)
 		{
+			@SuppressWarnings("unused")
 			Node<T> temp = mFirst;
 			mFirst = mFirst.next;
 			temp = null;

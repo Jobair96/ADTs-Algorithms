@@ -1,4 +1,4 @@
-package com.jobair.dataStructures.linkedList;
+package com.jobair.dataStructures;
 
 class Node<T>
 {
