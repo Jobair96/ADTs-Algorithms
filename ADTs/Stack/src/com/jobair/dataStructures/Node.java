@@ -2,17 +2,17 @@ package com.jobair.dataStructures;
 
 class Node<T>
 {
-	private T mData;
+	private T data; // Will only be read-only
 
 	Node <T> next;
 
 	Node (T data)
 	{
-		mData = data;
+		this.data = data;
 	}
 
 	T getData()
 	{
-		return mData;
+		return data;
 	}
 }
