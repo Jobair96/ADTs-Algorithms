@@ -12,11 +12,7 @@ public class Main {
 	
 		
 		System.out.println(test.peek());
-		Node<Integer> s = test.pop();
 		System.out.println(test.peek());
-		System.out.println(s.getData());
-		s = test.pop();
-		System.out.println(s.getData());
 		System.out.println(test.peek());
 		test.push(9);
 		System.out.println(test.peek());
