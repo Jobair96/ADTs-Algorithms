@@ -4,3 +4,4 @@
 *.swo
 main
 *.o
+bin/
