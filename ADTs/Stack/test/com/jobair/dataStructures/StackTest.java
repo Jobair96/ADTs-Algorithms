@@ -4,12 +4,14 @@
 package com.jobair.dataStructures;
 
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
@@ -17,6 +19,26 @@ import org.junit.Test;
  *
  */
 public class StackTest {
+	
+	/**
+	 * This method will be used to setup a Stack class filled with data to test various features
+	 */
+	@BeforeClass
+	public static void beginTest() throws Exception {
+		Stack<Integer> testIntStack = new Stack<Integer>();
+		testIntStack.push(1);
+		testIntStack.push(7);
+		testIntStack.push(-5);
+		testIntStack.push(-2);
+		testIntStack.push(55);
+		testIntStack.push(-5);
+		testIntStack.push(1);
+		
+		Stack<String> testStringStack = new Stack<String>();
+		testStringStack.push("hello");
+		testStringStack.push("GoodBye");
+		
+	}
 
 	/**
 	 * @throws java.lang.Exception
@@ -79,7 +101,25 @@ public class StackTest {
 	 */
 	@Test
 	public void testNuke() {
-		fail("Not yet implemented");
+		
+		Stack<Integer> testIntStack = new Stack<Integer>();
+		testIntStack.push(1);
+		testIntStack.push(7);
+		testIntStack.push(-5);
+		testIntStack.push(-2);
+		testIntStack.push(55);
+		testIntStack.push(-5);
+		testIntStack.push(1);
+		assertFalse(testIntStack.isEmpty());
+		
+		testIntStack.nuke();
+		assertTrue(testIntStack.isEmpty());
+		
+		Stack<String> testStringStack = new Stack<String>();
+		testStringStack.push("hello");
+		testStringStack.push("GoodBye");
+		testStringStack.nuke();
+		assertTrue(testIntStack.isEmpty());
 	}
 
 }

@@ -5,7 +5,6 @@ public class Main {
 	public static void main (String args[])
 	{
 		Stack<Integer> test = new Stack<Integer>();
-		System.out.println(test.isEmpty());
 		test.push(1);
 		test.push(7);
 		test.push(-5);
