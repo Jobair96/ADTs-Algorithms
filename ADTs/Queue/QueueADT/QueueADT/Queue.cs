@@ -1,5 +1,5 @@
 ﻿/**
- * Implementing a Queue as a Linked List
+ * Implementing a generic Queue as a Linked List. This uses the Node.cs class to build the list.
  */
 
 using System;
@@ -14,33 +14,34 @@ namespace Data_Structures
 
     public class Queue<T>  
     {
-        private Node<T> mFirst;
-        private Node<T> mLast;
+        private Node<T> first;
+        private Node<T> last;
 
         public Queue()
         {
-            mFirst = null;
-            mLast = null;
+            first = null;
+            last = null;
         }
 
         public bool isEmpty()
         {
-            return null == mFirst;
+            return null == first;
         }
 
         public void enqueue(T data)
         {
             Node<T> newNode = new Node<T>(data);
-            if(null == mFirst)
+
+            if(null == first)
             {
-                mLast = newNode;
-                mFirst = mLast;
+                last = newNode;
+                first = last;
             }
 
             else
             {
-                mLast.next = newNode;
-                mLast = newNode;
+                last.next = newNode;
+                last = newNode;
             }
         }
 
@@ -48,24 +49,19 @@ namespace Data_Structures
         {
             Debug.Assert(!isEmpty());
 
-            if(null != mFirst)
-            {
-                T item = mFirst.getData();
-                mFirst = mFirst.next;
-                return item;
-            }
-
-            return default(T);
+            T item = first.Data;
+            first = first.next;
+            return item;
         }
 
         public void nuke()
         {
             Debug.Assert(!isEmpty());
 
-            while (null != mFirst)
+            while (null != first)
             {
-                Node<T> temp = mFirst;
-                mFirst = mFirst.next;
+                Node<T> temp = first;
+                first = first.next;
                 temp = null;
             }
         }
